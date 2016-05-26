@@ -1,10 +1,10 @@
-package me.santong.weather.models;
+package me.santong.weather.models.weather;
 
 import me.santong.weather.framework.Entity;
-import me.santong.weather.models.daily.Astro;
-import me.santong.weather.models.daily.Cond;
-import me.santong.weather.models.daily.Tmp;
-import me.santong.weather.models.now.Wind;
+import me.santong.weather.models.weather.daily.Astro;
+import me.santong.weather.models.weather.daily.Cond;
+import me.santong.weather.models.weather.daily.Tmp;
+import me.santong.weather.models.weather.now.Wind;
 
 /**
  * Created by santong.

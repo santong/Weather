@@ -1,13 +1,12 @@
-package me.santong.weather.models;
+package me.santong.weather.models.weather.api;
 
 import me.santong.weather.framework.Entity;
 
 /**
  * Created by santong.
- * At 16/5/24 21:42
- * 空气质量指数
+ * At 16/5/25 23:50
  */
-public class Aqi extends Entity{
+public class City extends Entity {
 
     private int aqi;
     private int cn;
@@ -94,5 +93,6 @@ public class Aqi extends Entity{
                 ", qlty='" + qlty + '\'' +
                 ", so2=" + so2 +
                 '}';
+
     }
 }

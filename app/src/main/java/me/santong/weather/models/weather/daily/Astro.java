@@ -1,4 +1,4 @@
-package me.santong.weather.models.daily;
+package me.santong.weather.models.weather.daily;
 
 import me.santong.weather.framework.Entity;
 

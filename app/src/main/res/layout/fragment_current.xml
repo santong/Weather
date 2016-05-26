@@ -1,9 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical">
 
-    
+    <TextView
+        android:id="@+id/id_fg_current_tv_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/white_alpha_200"
+        android:textSize="30sp"
+        tools:text="漳州市" />
+
+    <TextView
+        android:id="@+id/id_fg_current_tv_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/white_alpha_200"
+        android:textSize="20sp"
+        tools:text="多云" />
+
+    <TextView
+        android:id="@+id/id_fg_current_tv_tmp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/white_alpha_225"
+        android:textSize="100sp"
+        tools:text="28°" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/id_fg_current_tv_week_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/white_alpha_225"
+            android:textSize="16sp"
+            tools:text="星期四" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/des.current.today"
+            android:textColor="@color/white_alpha_225"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/id_fg_current_tv_tmp_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/white_alpha_225"
+            android:textSize="16sp"
+            tools:text="31 24" />
+
+
+    </LinearLayout>
 
 </LinearLayout>

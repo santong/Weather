@@ -1,13 +1,13 @@
-package me.santong.weather.models;
+package me.santong.weather.models.weather;
 
 import me.santong.weather.framework.Entity;
-import me.santong.weather.models.suggestion.Comf;
-import me.santong.weather.models.suggestion.Cw;
-import me.santong.weather.models.suggestion.Drsg;
-import me.santong.weather.models.suggestion.Flu;
-import me.santong.weather.models.suggestion.Sport;
-import me.santong.weather.models.suggestion.Trav;
-import me.santong.weather.models.suggestion.Uv;
+import me.santong.weather.models.weather.suggestion.Comf;
+import me.santong.weather.models.weather.suggestion.Cw;
+import me.santong.weather.models.weather.suggestion.Drsg;
+import me.santong.weather.models.weather.suggestion.Flu;
+import me.santong.weather.models.weather.suggestion.Sport;
+import me.santong.weather.models.weather.suggestion.Trav;
+import me.santong.weather.models.weather.suggestion.Uv;
 
 /**
  * Created by santong.

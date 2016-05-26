@@ -3,6 +3,12 @@ package me.santong.weather.models;
 import java.util.List;
 
 import me.santong.weather.framework.Entity;
+import me.santong.weather.models.weather.Aqi;
+import me.santong.weather.models.weather.Basic;
+import me.santong.weather.models.weather.DailyForecast;
+import me.santong.weather.models.weather.HourlyForecast;
+import me.santong.weather.models.weather.NowWeather;
+import me.santong.weather.models.weather.Suggestion;
 
 /**
  * Created by santong.
@@ -11,9 +17,9 @@ import me.santong.weather.framework.Entity;
 public class Weather extends Entity {
     private Aqi aqi;
     private Basic basic;
-    private List<DailyForecast> dailyForecastList;
-    private List<HourlyForecast> hourlyForecastList;
-    private NowWeather nowWeather;
+    private List<DailyForecast> daily_forecast;
+    private List<HourlyForecast> hourly_forecast;
+    private NowWeather now;
     private String status;
     private Suggestion suggestion;
 
@@ -34,27 +40,27 @@ public class Weather extends Entity {
     }
 
     public List<DailyForecast> getDailyForecastList() {
-        return dailyForecastList;
+        return daily_forecast;
     }
 
-    public void setDailyForecastList(List<DailyForecast> dailyForecastList) {
-        this.dailyForecastList = dailyForecastList;
+    public void setDailyForecastList(List<DailyForecast> daily_forecast) {
+        this.daily_forecast = daily_forecast;
     }
 
     public List<HourlyForecast> getHourlyForecastList() {
-        return hourlyForecastList;
+        return hourly_forecast;
     }
 
-    public void setHourlyForecastList(List<HourlyForecast> hourlyForecastList) {
-        this.hourlyForecastList = hourlyForecastList;
+    public void setHourlyForecastList(List<HourlyForecast> hourly_forecast) {
+        this.hourly_forecast = hourly_forecast;
     }
 
     public NowWeather getNowWeather() {
-        return nowWeather;
+        return now;
     }
 
-    public void setNowWeather(NowWeather nowWeather) {
-        this.nowWeather = nowWeather;
+    public void setNowWeather(NowWeather now) {
+        this.now = now;
     }
 
     public String getStatus() {
@@ -78,9 +84,9 @@ public class Weather extends Entity {
         return "Weather{" +
                 "aqi=" + aqi.toString() +
                 ", basic=" + basic.toString() +
-                ", dailyForecastList=" + dailyForecastList +
-                ", hourlyForecastList=" + hourlyForecastList +
-                ", nowWeather=" + nowWeather.toString() +
+                ", daily_forecast=" + daily_forecast.get(0) +
+                ", hourly_forecast=" + hourly_forecast.size() +
+                ", now=" + now.toString() +
                 ", status='" + status + '\'' +
                 ", suggestion=" + suggestion.toString() +
                 '}';

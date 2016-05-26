@@ -1,15 +1,17 @@
-package me.santong.weather.models;
+package me.santong.weather.models.weather;
+
+import java.io.Serializable;
 
 import me.santong.weather.framework.Entity;
-import me.santong.weather.models.now.Cond;
-import me.santong.weather.models.now.Wind;
+import me.santong.weather.models.weather.now.Cond;
+import me.santong.weather.models.weather.now.Wind;
 
 /**
  * Created by santong.
  * At 16/5/24 22:13
  * 当前天气
  */
-public class NowWeather extends Entity {
+public class NowWeather extends Entity implements Serializable {
     private Cond cond;  // 天气描述
     private int fl;     // 体感温度
     private int hum;    // 湿度(%)

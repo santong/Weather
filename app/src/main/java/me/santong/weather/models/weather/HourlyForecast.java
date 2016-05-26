@@ -1,13 +1,16 @@
-package me.santong.weather.models;
+package me.santong.weather.models.weather;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import me.santong.weather.framework.Entity;
-import me.santong.weather.models.now.Wind;
+import me.santong.weather.models.weather.now.Wind;
 
 /**
  * Created by santong.
  * At 16/5/24 22:29
  */
-public class HourlyForecast extends Entity {
+public class HourlyForecast extends Entity  {
     private String date;
     private int hum;        // 湿度
     private double pop;     // 降水概率

@@ -1,13 +1,13 @@
-package me.santong.weather.models.suggestion;
+package me.santong.weather.models.weather.suggestion;
 
 import me.santong.weather.framework.Entity;
 
 /**
  * Created by santong.
- * At 16/5/24 22:03
- * 穿衣指数
+ * At 16/5/24 22:07
+ * 旅游指数
  */
-public class Drsg extends Entity {
+public class Trav extends Entity {
     private String brf;
     private String txt;
 
@@ -29,7 +29,7 @@ public class Drsg extends Entity {
 
     @Override
     public String toString() {
-        return "Flu{" +
+        return "Trav{" +
                 "brf='" + brf + '\'' +
                 ", txt='" + txt + '\'' +
                 '}';

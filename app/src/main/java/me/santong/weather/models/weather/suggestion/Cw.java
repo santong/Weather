@@ -1,4 +1,4 @@
-package me.santong.weather.models.suggestion;
+package me.santong.weather.models.weather.suggestion;
 
 import me.santong.weather.framework.Entity;
 

@@ -1,12 +1,12 @@
-package me.santong.weather.models.suggestion;
+package me.santong.weather.models.weather.suggestion;
 
 import me.santong.weather.framework.Entity;
 
 /**
  * Created by santong.
- * At 16/5/24 22:10
+ * At 16/5/24 22:09
  */
-public class Comf extends Entity{
+public class Sport extends Entity {
     private String brf;
     private String txt;
 
@@ -28,9 +28,9 @@ public class Comf extends Entity{
 
     @Override
     public String toString() {
-        return "Flu{" +
-                "brf='" + brf + '\'' +
-                ", txt='" + txt + '\'' +
+        return "Sport{" +
+                "txt='" + txt + '\'' +
+                ", brf='" + brf + '\'' +
                 '}';
     }
 }

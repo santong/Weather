@@ -1,13 +1,13 @@
-package me.santong.weather.models.suggestion;
+package me.santong.weather.models.weather.suggestion;
 
 import me.santong.weather.framework.Entity;
 
 /**
  * Created by santong.
- * At 16/5/24 22:05
- * 感冒指数
+ * At 16/5/24 22:03
+ * 穿衣指数
  */
-public class Flu extends Entity {
+public class Drsg extends Entity {
     private String brf;
     private String txt;
 
