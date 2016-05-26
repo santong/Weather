@@ -1,7 +1,9 @@
 package me.santong.weather.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by santong.
@@ -67,12 +69,12 @@ public class DateUtils {
      */
     public static String getDayOfWeek(String dateStr) {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(getDateFromTimeString(dateStr));
+        calendar.setTime(getDateFromStr(dateStr));
         return getDayOfWeek(calendar.get(Calendar.DAY_OF_WEEK));
     }
 
     /**
-     * @param time 将日期字符串转为日期对象
+     * @param time 传入秒数
      */
     public static Date getDateFromTimeString(String time) {
         try {
@@ -82,6 +84,40 @@ public class DateUtils {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * 将"yyyy-MM-dd HH:mm"格式的字符串转换成Date
+     *
+     * @param dateStr 日期字符
+     * @return date
+     */
+    public static Date getDateFromStr(String dateStr) {
+        Date date;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm",new Locale("CN"));
+        try {
+            date = sdf.parse(dateStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return date;
+    }
+
+    /**
+     * @param dateStr 日期字符串
+     * @return 取出字符串中的时间并进行判断, 返回值形如"上午11时;下午3时"
+     */
+    public static String getCurrentHour(String dateStr) {
+        String hourTxt;
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(getDateFromStr(dateStr));
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        if (hour > 12)
+            hourTxt = "下午" + (hour - 12) + "时";
+        else
+            hourTxt = "上午" + hour + "时";
+        return hourTxt;
     }
 
 

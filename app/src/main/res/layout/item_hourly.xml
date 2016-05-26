@@ -3,31 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/id_item_hourly_tv_time"
-        android:layout_width="50dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:textColor="@color/white_alpha_225"
         android:textSize="12sp"
         tools:text="现在" />
 
-    <ImageView
-        android:id="@+id/id_item_hourly_img_weather_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:contentDescription="@string/app_name" />
-
     <TextView
         android:id="@+id/id_item_hourly_tv_tmp"
-        android:layout_width="50dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/white_alpha_225"
-        android:textSize="12sp"
+        android:textSize="14sp"
         tools:text="27°" />
 
 

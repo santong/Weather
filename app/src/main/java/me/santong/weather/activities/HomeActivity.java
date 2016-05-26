@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.widget.Toast;
 
 import me.santong.weather.R;
 import me.santong.weather.contracts.HomeContract;
@@ -14,7 +15,7 @@ import me.santong.weather.fragments.WeatherDetailFagment;
 import me.santong.weather.framework.BaseActivity;
 import me.santong.weather.prensenters.HomePresenter;
 
-public class HomeActivity extends BaseActivity implements HomeContract.View{
+public class HomeActivity extends BaseActivity implements HomeContract.View {
 
     private HomeContract.UserListener mPresenter;
 
@@ -48,7 +49,7 @@ public class HomeActivity extends BaseActivity implements HomeContract.View{
         Fragment currentFragment = new CurrentWeatherFragment();
         FragmentTransaction transaction = fm.beginTransaction();
         currentFragment.setArguments(bundle);
-        transaction.replace(R.id.id_home_current_content,currentFragment);
+        transaction.replace(R.id.id_home_current_content, currentFragment);
         transaction.commit();
     }
 
@@ -57,7 +58,7 @@ public class HomeActivity extends BaseActivity implements HomeContract.View{
         Fragment dailyFragment = new DailyForecastFragment();
         FragmentTransaction transaction = fm.beginTransaction();
         dailyFragment.setArguments(bundle);
-        transaction.replace(R.id.id_home_current_daily_content,dailyFragment);
+        transaction.replace(R.id.id_home_current_daily_content, dailyFragment);
         transaction.commit();
     }
 
@@ -66,7 +67,7 @@ public class HomeActivity extends BaseActivity implements HomeContract.View{
         Fragment hourlyFragment = new HourlyForecastFragment();
         FragmentTransaction transaction = fm.beginTransaction();
         hourlyFragment.setArguments(bundle);
-        transaction.replace(R.id.id_home_current_hourly_content,hourlyFragment);
+        transaction.replace(R.id.id_home_current_hourly_content, hourlyFragment);
         transaction.commit();
     }
 
@@ -75,22 +76,22 @@ public class HomeActivity extends BaseActivity implements HomeContract.View{
         Fragment detailFagment = new WeatherDetailFagment();
         FragmentTransaction transaction = fm.beginTransaction();
         detailFagment.setArguments(bundle);
-        transaction.replace(R.id.id_home_current_detail_content,detailFagment);
+        transaction.replace(R.id.id_home_current_detail_content, detailFagment);
         transaction.commit();
     }
 
     @Override
     public void showProgress() {
-
+        showProgressDialog();
     }
 
     @Override
     public void hideProgress() {
-
+        hideProgressDialog();
     }
 
     @Override
     public void showToast(String msg) {
-
+        Toast.makeText(HomeActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
 }

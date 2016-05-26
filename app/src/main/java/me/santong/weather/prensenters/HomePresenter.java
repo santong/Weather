@@ -1,14 +1,20 @@
 package me.santong.weather.prensenters;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
+import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import me.santong.weather.contracts.HomeContract;
 import me.santong.weather.models.Weather;
 import me.santong.weather.models.weather.DailyForecast;
+import me.santong.weather.models.weather.HourlyForecast;
 import me.santong.weather.network.HttpTools;
 import retrofit2.Response;
 import rx.Observer;
@@ -64,7 +70,7 @@ public class HomePresenter implements HomeContract.UserListener {
         mView.init();
     }
 
-    private void deliverData(Weather weather){
+    private void deliverData(Weather weather) {
         DailyForecast todayForecast = weather.getDailyForecastList().get(0);
 
         // 传递数据给CurrentWeatherFragment
@@ -75,6 +81,12 @@ public class HomePresenter implements HomeContract.UserListener {
                 + "   " + todayForecast.getTmp().getMin());
         cBundle.putString("des", weather.getNowWeather().getCond().getTxt());
         mView.data4CurrentFgmt(cBundle);
+
+        // 传递数据给HourlyForecastFragment
+        Bundle hBundle = new Bundle();
+        hBundle.putSerializable("hourlyForecast", (Serializable) weather.getHourlyForecastList());
+        mView.data4HourlyFgmt(hBundle);
+
 
     }
 }
