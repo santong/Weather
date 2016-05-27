@@ -1,6 +1,8 @@
 package me.santong.weather.contracts;
 
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 
 import me.santong.weather.framework.BaseUserListener;
 import me.santong.weather.framework.BaseView;
@@ -21,7 +23,7 @@ public interface CurrentContract {
 
         void setDayOfWeek(String txt);
 
-        void setTmpRange(String txt);
+        void setTmpRange(SpannableStringBuilder txt);
     }
 
     interface UserListener extends BaseUserListener {

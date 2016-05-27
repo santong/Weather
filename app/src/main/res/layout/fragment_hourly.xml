@@ -7,20 +7,31 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/white_alpha_200" />
+        android:background="@color/white_alpha_215" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/id_fg_hourly_rv_forecast_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1px"
         android:paddingBottom="10dp"
         android:paddingEnd="15dp"
         android:paddingStart="15dp"
         android:paddingTop="10dp" />
 
+    <TextView
+        android:id="@+id/id_fg_hourly_tv_warn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/des.hourly.null"
+        android:textAlignment="center"
+        android:textColor="@color/white_alpha_230"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/white_alpha_200" />
+        android:background="@color/white_alpha_215" />
 
 </LinearLayout>

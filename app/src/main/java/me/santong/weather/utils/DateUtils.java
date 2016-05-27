@@ -69,7 +69,7 @@ public class DateUtils {
      */
     public static String getDayOfWeek(String dateStr) {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(getDateFromStr(dateStr));
+        calendar.setTime(getDateFromStr(dateStr, 0));
         return getDayOfWeek(calendar.get(Calendar.DAY_OF_WEEK));
     }
 
@@ -92,9 +92,20 @@ public class DateUtils {
      * @param dateStr 日期字符
      * @return date
      */
-    public static Date getDateFromStr(String dateStr) {
+    public static Date getDateFromStr(String dateStr, int type) {
         Date date;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm",new Locale("CN"));
+        SimpleDateFormat sdf;
+        switch (type) {
+            case 0:
+                sdf = new SimpleDateFormat("yyyy-MM-dd", new Locale("CN"));
+                break;
+            case 1:
+                sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", new Locale("CN"));
+                break;
+            default:
+                sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", new Locale("CN"));
+                break;
+        }
         try {
             date = sdf.parse(dateStr);
         } catch (Exception e) {
@@ -104,6 +115,7 @@ public class DateUtils {
         return date;
     }
 
+
     /**
      * @param dateStr 日期字符串
      * @return 取出字符串中的时间并进行判断, 返回值形如"上午11时;下午3时"
@@ -111,7 +123,7 @@ public class DateUtils {
     public static String getCurrentHour(String dateStr) {
         String hourTxt;
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(getDateFromStr(dateStr));
+        calendar.setTime(getDateFromStr(dateStr, 1));
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         if (hour > 12)
             hourTxt = "下午" + (hour - 12) + "时";

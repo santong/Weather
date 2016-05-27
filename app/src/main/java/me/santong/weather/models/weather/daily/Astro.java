@@ -1,12 +1,14 @@
 package me.santong.weather.models.weather.daily;
 
+import java.io.Serializable;
+
 import me.santong.weather.framework.Entity;
 
 /**
  * Created by santong.
  * At 16/5/24 22:23
  */
-public class Astro extends Entity {
+public class Astro extends Entity implements Serializable{
     private String sr;      // 日出时间
     private String ss;      // 日落时间
 

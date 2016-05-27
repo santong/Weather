@@ -2,10 +2,10 @@ package me.santong.weather.prensenters;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 
 import me.santong.weather.contracts.CurrentContract;
 import me.santong.weather.utils.DateUtils;
+import me.santong.weather.utils.StringUtils;
 
 
 /**
@@ -29,19 +29,19 @@ public class CurrentWeatherPresenter implements CurrentContract.UserListener {
     @Override
     public void getData(Bundle bundle) {
         String city = bundle.getString("city");
-        String tmpRange = bundle.getString("tmpRange");
+        int tmpMax = bundle.getInt("tmpMax");
+        int tmpMin = bundle.getInt("tmpMin");
         String tmp = bundle.getString("tmp");
         String des = bundle.getString("des");
-        Log.e("===", city + tmp + tmpRange + des);
+
         if (!TextUtils.isEmpty(tmp))
             mView.setCurrentTmp(" " + tmp + "°");
         if (!TextUtils.isEmpty(des))
             mView.setWeatherDes(des);
         if (!TextUtils.isEmpty(city))
             mView.setCityName(city);
-        if (!TextUtils.isEmpty(tmpRange))
-            mView.setTmpRange(tmpRange);
-        mView.setDayOfWeek(DateUtils.getDayOfWeek());
 
+        mView.setTmpRange(StringUtils.decorateTmpRange(tmpMax, tmpMin));
+        mView.setDayOfWeek(DateUtils.getDayOfWeek());
     }
 }

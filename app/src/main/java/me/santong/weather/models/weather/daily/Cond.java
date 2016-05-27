@@ -1,12 +1,14 @@
 package me.santong.weather.models.weather.daily;
 
+import java.io.Serializable;
+
 import me.santong.weather.framework.Entity;
 
 /**
  * Created by santong.
  * At 16/5/24 22:24
  */
-public class Cond extends Entity {
+public class Cond extends Entity implements Serializable{
     private int code_d;
     private int code_n;
     private String txt_d;

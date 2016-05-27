@@ -1,12 +1,14 @@
 package me.santong.weather.models.weather.now;
 
+import java.io.Serializable;
+
 import me.santong.weather.framework.Entity;
 
 /**
  * Created by santong.
  * At 16/5/24 22:18
  */
-public class Wind extends Entity {
+public class Wind extends Entity implements Serializable{
     private int deg;        // 风向(角度)
     private String dir;     // 风向(方向)
     private String sc;      // 风力等级

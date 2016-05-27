@@ -1,5 +1,7 @@
 package me.santong.weather.models.weather;
 
+import java.io.Serializable;
+
 import me.santong.weather.framework.Entity;
 import me.santong.weather.models.weather.daily.Astro;
 import me.santong.weather.models.weather.daily.Cond;
@@ -10,7 +12,7 @@ import me.santong.weather.models.weather.now.Wind;
  * Created by santong.
  * At 16/5/24 22:21
  */
-public class DailyForecast extends Entity {
+public class DailyForecast extends Entity implements Serializable {
     private Astro astro;
     private Cond cond;
     private String date;
