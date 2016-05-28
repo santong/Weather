@@ -131,6 +131,4 @@ public class DateUtils {
             hourTxt = "上午" + hour + "时";
         return hourTxt;
     }
-
-
 }

@@ -34,7 +34,7 @@ public class HourlyForecastFragment extends BaseFragment {
         Bundle bundle = getArguments();
         List<HourlyForecast> hourlyForecastList = (List<HourlyForecast>) bundle.getSerializable("hourlyForecast");
 
-        if (hourlyForecastList == null) {
+        if (hourlyForecastList == null || hourlyForecastList.size() <= 0) {
             tvWarn.setVisibility(View.VISIBLE);
             rvHourly.setVisibility(View.GONE);
         } else {

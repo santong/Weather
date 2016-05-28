@@ -39,7 +39,7 @@ public class CurrentWeatherPresenter implements CurrentContract.UserListener {
         if (!TextUtils.isEmpty(des))
             mView.setWeatherDes(des);
         if (!TextUtils.isEmpty(city))
-            mView.setCityName(city);
+            mView.setCityName(city + "市");
 
         mView.setTmpRange(StringUtils.decorateTmpRange(tmpMax, tmpMin));
         mView.setDayOfWeek(DateUtils.getDayOfWeek());

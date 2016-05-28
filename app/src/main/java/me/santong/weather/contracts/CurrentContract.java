@@ -1,7 +1,6 @@
 package me.santong.weather.contracts;
 
 import android.os.Bundle;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 
 import me.santong.weather.framework.BaseUserListener;

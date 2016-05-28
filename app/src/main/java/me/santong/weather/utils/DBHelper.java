@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -68,6 +67,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    // TODO: 暂未实现更新
     public boolean SaveOrUpdateCityList(List<City> cityList) {
         SQLiteDatabase db = this.getWritableDatabase();
         boolean flag = true;
@@ -107,6 +107,7 @@ public class DBHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
             cursor.close();
         }
+        db.close();
         return cityList;
     }
 
@@ -127,26 +128,35 @@ public class DBHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
             cursor.close();
         }
+        db.close();
         return conditionList;
     }
 
     public String getWeatherIconPath(int code) {
-        List<Condition> conditionList = getCondLitFromDisk();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.query(TABLE_COND,
+                new String[]{"url"}, "code = ?",
+                new String[]{String.valueOf(code)}, null, null, null, null);
         String targetPath = "";
-        for (Condition condition : conditionList) {
-            if (condition.getCode() == code)
-                targetPath = condition.getIcon();
+        while (cursor.moveToNext()) {
+            targetPath = cursor.getString(cursor.getColumnIndex("url"));
         }
+        cursor.close();
+        db.close();
         return targetPath;
     }
 
     public String getCityCode(String cityName) {
-        List<City> cityList = getCityListFromDisk();
         String cityId = "";
-        for (City city : cityList) {
-            if (city.getCity().equals(cityName))
-                cityId = city.getId();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.query(TABLE_COND,
+                new String[]{"id"}, "city = ?",
+                new String[]{cityName}, null, null, null, null);
+        while (cursor.moveToNext()) {
+            cityId = cursor.getString(cursor.getColumnIndex("id"));
         }
+        cursor.close();
+        db.close();
         return cityId;
     }
 

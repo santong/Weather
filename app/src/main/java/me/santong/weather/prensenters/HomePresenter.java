@@ -5,20 +5,14 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.Serializable;
-import java.lang.reflect.Type;
-import java.util.List;
 
 import me.santong.weather.contracts.HomeContract;
-import me.santong.weather.models.Condition;
 import me.santong.weather.models.Weather;
 import me.santong.weather.models.weather.DailyForecast;
 import me.santong.weather.network.HttpTools;
 import retrofit2.Response;
-import rx.Observable;
-import rx.Observer;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -82,13 +76,13 @@ public class HomePresenter implements HomeContract.UserListener {
         cBundle.putString("tmp", String.valueOf(weather.getNowWeather().getTmp()));
         cBundle.putInt("tmpMax", todayForecast.getTmp().getMax());
         cBundle.putInt("tmpMin", todayForecast.getTmp().getMin());
-        cBundle.putString("des", weather.getNowWeather().getCond().getTxt());
+        cBundle.putString("des", todayForecast.getCond().getTxt_d());
         mView.data4CurrentFgmt(cBundle);
 
         // 传递数据给HourlyForecastFragment
         Bundle hBundle = new Bundle();
         // 晚上11点~12点间可能为null
-        if (weather.getDailyForecastList() != null) {
+        if (weather.getHourlyForecastList() != null) {
             hBundle.putSerializable("hourlyForecast", (Serializable) weather.getHourlyForecastList());
             mView.data4HourlyFgmt(hBundle);
         }
@@ -100,6 +94,12 @@ public class HomePresenter implements HomeContract.UserListener {
             mView.data4DailyFgmt(dBundle);
         }
 
-
+        Bundle dtBundle = new Bundle();
+        dtBundle.putSerializable("toadyForecast", todayForecast);
+        dtBundle.putInt("feelTmp", weather.getNowWeather().getFl());
+        dtBundle.putString("uv", weather.getSuggestion().getUv().getBrf());
+        dtBundle.putString("cond", weather.getNowWeather().getCond().getTxt());
+        dtBundle.putInt("nowTmp", weather.getNowWeather().getTmp());
+        mView.data4DetailFgmt(dtBundle);
     }
 }

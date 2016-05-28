@@ -15,7 +15,7 @@ public class NowWeather extends Entity implements Serializable {
     private Cond cond;  // 天气描述
     private int fl;     // 体感温度
     private int hum;    // 湿度(%)
-    private int pcpn;   // 降雨量(mm)
+    private String pcpn;   // 降雨量(mm)
     private int pres;   // 气压
     private int tmp;    // 当前温度(摄氏度)
     private int vis;    // 能见度(km)
@@ -45,11 +45,11 @@ public class NowWeather extends Entity implements Serializable {
         this.hum = hum;
     }
 
-    public int getPcpn() {
+    public String getPcpn() {
         return pcpn;
     }
 
-    public void setPcpn(int pcpn) {
+    public void setPcpn(String pcpn) {
         this.pcpn = pcpn;
     }
 

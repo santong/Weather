@@ -1,7 +1,6 @@
 package me.santong.weather.fragments;
 
 import android.os.Bundle;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.widget.TextView;
 import android.widget.Toast;

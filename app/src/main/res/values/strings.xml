@@ -2,4 +2,14 @@
     <string name="app_name">什么天气</string>
     <string name="des.current.today">今天</string>
     <string name="des.hourly.null">今天没有预报了,明天再来看吧</string>
+    <string name="des.detail.sunrise">日出:</string>
+    <string name="des.detail.sunset">日落:</string>
+    <string name="des.detail.rainfall.rate">降雨概率:</string>
+    <string name="des.detail.hum">湿度:</string>
+    <string name="des.detail.wind.speed">风速:</string>
+    <string name="des.detail.apparent.tmp">体感温度:</string>
+    <string name="des.detail.precipitation">降水量:</string>
+    <string name="des.detail.atmos.pressure">气压:</string>
+    <string name="des.detail.visibility">能见度:</string>
+    <string name="des.detail.uv">紫外线指数:</string>
 </resources>

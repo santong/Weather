@@ -11,7 +11,7 @@ import me.santong.weather.contracts.HomeContract;
 import me.santong.weather.fragments.CurrentWeatherFragment;
 import me.santong.weather.fragments.DailyForecastFragment;
 import me.santong.weather.fragments.HourlyForecastFragment;
-import me.santong.weather.fragments.WeatherDetailFagment;
+import me.santong.weather.fragments.WeatherDetailFragment;
 import me.santong.weather.framework.BaseActivity;
 import me.santong.weather.prensenters.HomePresenter;
 
@@ -73,10 +73,10 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
 
     @Override
     public void data4DetailFgmt(Bundle bundle) {
-        Fragment detailFagment = new WeatherDetailFagment();
+        Fragment detailFragment = new WeatherDetailFragment();
         FragmentTransaction transaction = fm.beginTransaction();
-        detailFagment.setArguments(bundle);
-        transaction.replace(R.id.id_home_current_detail_content, detailFagment);
+        detailFragment.setArguments(bundle);
+        transaction.replace(R.id.id_home_current_detail_content, detailFragment);
         transaction.commit();
     }
 
