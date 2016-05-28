@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Weather</string>
+    <string name="app_name">什么天气</string>
     <string name="des.current.today">今天</string>
-    <string name="des.hourly.null">暂无信息</string>
+    <string name="des.hourly.null">今天没有预报了,明天再来看吧</string>
 </resources>

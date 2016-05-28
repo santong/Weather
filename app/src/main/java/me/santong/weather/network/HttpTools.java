@@ -1,16 +1,10 @@
 package me.santong.weather.network;
 
-import java.util.List;
-
-import me.santong.weather.models.City;
-import me.santong.weather.models.Condition;
-import me.santong.weather.models.Weather;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -33,17 +27,14 @@ public class HttpTools {
     }
 
     public interface onGet {
-        @GET("weather")
-        Observable<Response<Object>> getWeatherString(@Query("cityid") String cityId, @Query("key") String key);
+        @GET("weather?key=" + key)
+        Observable<Response<Object>> getWeatherString(@Query("cityid") String cityId);
 
-        @GET("weather")
-        Observable<Weather> getWeather(@Query("cityid") String cityId,@Query("key") String key);
+        @GET("citylist?key=" + key)
+        Observable<Response<Object>> getCityListString(@Query("search") String searchType);
 
-        @GET("citylist")
-        Observable<List<City>> getCityList(@Path("search") String searchType);
-
-        @GET("condition")
-        Observable<List<Condition>> getCondList(@Path("search") String searchType);
+        @GET("condition?key=" + key)
+        Observable<Response<Object>> getCondListString(@Query("search") String searchType);
     }
 
 

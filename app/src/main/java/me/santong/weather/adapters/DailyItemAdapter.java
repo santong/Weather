@@ -9,10 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import me.santong.weather.R;
 import me.santong.weather.models.weather.DailyForecast;
+import me.santong.weather.utils.DBHelper;
 import me.santong.weather.utils.DateUtils;
 import me.santong.weather.utils.StringUtils;
 
@@ -26,9 +29,13 @@ public class DailyItemAdapter extends RecyclerView.Adapter<DailyItemAdapter.View
 
     private List<DailyForecast> mDailyForecastList;
 
+    private DBHelper dbHelper;
+
     public DailyItemAdapter(Context context, List<DailyForecast> dailyForecastList) {
         mContext = context;
         this.mDailyForecastList = dailyForecastList;
+
+        dbHelper = DBHelper.getInstance(context);
     }
 
     @Override
@@ -45,6 +52,9 @@ public class DailyItemAdapter extends RecyclerView.Adapter<DailyItemAdapter.View
         holder.tvTmpRange.setText(StringUtils.decorateTmpRange(dailyForecast.getTmp().getMax()
                 , dailyForecast.getTmp().getMin()));
         holder.tvWeekDay.setText(DateUtils.getDayOfWeek(dailyForecast.getDate()));
+
+        String path = dbHelper.getWeatherIconPath(dailyForecast.getCond().getCode_d());
+        Glide.with(mContext).load(path).into(holder.imgIcon);
     }
 
     @Override

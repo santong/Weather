@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/blue_bg"
-    android:orientation="horizontal"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/id_item_daily_tv_week_day"
@@ -19,18 +19,19 @@
     <ImageView
         android:id="@+id/id_item_daily_img_icon"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_weight="1"
         android:contentDescription="@string/app_name"
+        android:scaleType="centerInside"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/id_item_daily_tv_tmp_range"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         android:gravity="center"
         android:textColor="@color/white_alpha_230"
         android:textSize="16sp"
-        android:layout_marginEnd="10dp"
         tools:text="30 17" />
 </LinearLayout>

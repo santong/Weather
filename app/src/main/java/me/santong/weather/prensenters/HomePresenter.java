@@ -5,15 +5,21 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.Serializable;
+import java.lang.reflect.Type;
+import java.util.List;
 
 import me.santong.weather.contracts.HomeContract;
+import me.santong.weather.models.Condition;
 import me.santong.weather.models.Weather;
 import me.santong.weather.models.weather.DailyForecast;
 import me.santong.weather.network.HttpTools;
 import retrofit2.Response;
+import rx.Observable;
 import rx.Observer;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -33,10 +39,10 @@ public class HomePresenter implements HomeContract.UserListener {
     public void LoadWeather() {
         mView.showProgress();
         HttpTools.onGet onGet = HttpTools.getRetrofit().create(HttpTools.onGet.class);
-        onGet.getWeatherString("CN101230201", "20d53cdd5a3345a7a7dab43d46ef778d")
+        onGet.getWeatherString("CN101230201")
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Response<Object>>() {
+                .subscribe(new Subscriber<Response<Object>>() {
                     @Override
                     public void onCompleted() {
                         mView.hideProgress();

@@ -10,7 +10,7 @@ public class Condition extends Entity {
     private int code;
     private String txt;
     private String txt_en;  // 英文
-    private String url;     // 图片路径
+    private String icon;     // 图片路径
 
     public int getCode() {
         return code;
@@ -36,12 +36,12 @@ public class Condition extends Entity {
         this.txt_en = txt_en;
     }
 
-    public String getUrl() {
-        return url;
+    public String getIcon() {
+        return icon;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class Condition extends Entity {
                 "code=" + code +
                 ", txt='" + txt + '\'' +
                 ", txt_en='" + txt_en + '\'' +
-                ", url='" + url + '\'' +
+                ", icon='" + icon + '\'' +
                 '}';
     }
 }
