@@ -9,7 +9,7 @@ import me.santong.weather.framework.Entity;
 public class City extends Entity {
 
     private int aqi;
-    private int cn;
+    private int co;
     private int no2;
     private int o3;
     private int pm10;
@@ -25,12 +25,12 @@ public class City extends Entity {
         this.aqi = aqi;
     }
 
-    public int getCn() {
-        return cn;
+    public int getCo() {
+        return co;
     }
 
-    public void setCn(int cn) {
-        this.cn = cn;
+    public void setCo(int co) {
+        this.co = co;
     }
 
     public int getNo2() {
@@ -85,7 +85,7 @@ public class City extends Entity {
     public String toString() {
         return "Aqi{" +
                 "aqi=" + aqi +
-                ", cn=" + cn +
+                ", co=" + co +
                 ", no2=" + no2 +
                 ", o3=" + o3 +
                 ", pm10=" + pm10 +

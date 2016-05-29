@@ -77,6 +77,7 @@ public class HomePresenter implements HomeContract.UserListener {
         cBundle.putInt("tmpMax", todayForecast.getTmp().getMax());
         cBundle.putInt("tmpMin", todayForecast.getTmp().getMin());
         cBundle.putString("des", todayForecast.getCond().getTxt_d());
+        cBundle.putSerializable("aqi", weather.getAqi());
         mView.data4CurrentFgmt(cBundle);
 
         // 传递数据给HourlyForecastFragment

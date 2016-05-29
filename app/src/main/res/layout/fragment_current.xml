@@ -3,36 +3,294 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:background="@color/blue_bg"
+    android:gravity="center_vertical"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/id_fg_current_tv_city"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textColor="@color/white_alpha_215"
-        android:textSize="32sp"
-        tools:text="漳州市" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/id_fg_current_tv_des"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textColor="@color/white_alpha_215"
-        android:textSize="18sp"
-        tools:text="多云" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/id_fg_current_tv_tmp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textAlignment="center"
-        android:textColor="@color/white_alpha_230"
-        android:textSize="100sp"
-        tools:text="28°" />
+            <TextView
+                android:id="@+id/id_fg_current_tv_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/white_alpha_215"
+                android:textSize="32sp"
+                tools:text="漳州市" />
+
+            <TextView
+                android:id="@+id/id_fg_current_tv_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/white_alpha_215"
+                android:textSize="18sp"
+                tools:text="多云" />
+
+            <TextView
+                android:id="@+id/id_fg_current_tv_tmp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/white_alpha_230"
+                android:textSize="80sp"
+                tools:text="28°" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white_alpha_175" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/des.current.aqi.title"
+                android:textAlignment="center"
+                android:textColor="@color/white_alpha_215"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/des.current.aqi.quality"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/id_fg_current_tv_quality"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp"
+                    tools:text="优" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/des.current.aqi"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/id_fg_current_tv_aqi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp"
+                    tools:text="31" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/des.current.pm25"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/id_fg_current_tv_pm25"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp"
+                    tools:text="14" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/des.current.pm10"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/id_fg_current_tv_pm10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp"
+                    tools:text="30" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/des.current.o3"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/id_fg_current_tv_o3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp"
+                    tools:text="45" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/des.current.co"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/id_fg_current_tv_co"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp"
+                    tools:text="0" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/des.current.so2"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/id_fg_current_tv_so2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp"
+                    tools:text="7" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/des.current.no2"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/id_fg_current_tv_no2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/white_alpha_215"
+                    android:textSize="12sp"
+                    tools:text="10" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

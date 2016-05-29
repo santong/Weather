@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">什么天气</string>
-    <string name="des.current.today">今天</string>
     <string name="des.hourly.null">今天没有预报了,明天再来看吧</string>
+
     <string name="des.detail.sunrise">日出:</string>
     <string name="des.detail.sunset">日落:</string>
     <string name="des.detail.rainfall.rate">降雨概率:</string>
@@ -12,4 +12,15 @@
     <string name="des.detail.atmos.pressure">气压:</string>
     <string name="des.detail.visibility">能见度:</string>
     <string name="des.detail.uv">紫外线指数:</string>
+
+    <string name="des.current.today">今天</string>
+    <string name="des.current.aqi.title">空气状况</string>
+    <string name="des.current.aqi.quality">空气质量:</string>
+    <string name="des.current.aqi">AQI:</string>
+    <string name="des.current.pm25">pm2.5:</string>
+    <string name="des.current.pm10">pm1 0:</string>
+    <string name="des.current.o3">O3:</string>
+    <string name="des.current.co">CO:</string>
+    <string name="des.current.so2">SO2:</string>
+    <string name="des.current.no2">NO2:</string>
 </resources>
