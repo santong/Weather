@@ -133,11 +133,15 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public String getWeatherIconPath(int code) {
+        String codeStr = String.valueOf(code);
+        String targetPath = "";
+        if (codeStr.length() > 100)
+            return targetPath;
+
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.query(TABLE_COND,
                 new String[]{"url"}, "code = ?",
-                new String[]{String.valueOf(code)}, null, null, null, null);
-        String targetPath = "";
+                new String[]{codeStr}, null, null, null, null);
         while (cursor.moveToNext()) {
             targetPath = cursor.getString(cursor.getColumnIndex("url"));
         }
@@ -148,8 +152,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public String getCityCode(String cityName) {
         String cityId = "";
+        if (cityName.length() > 100)
+            return cityId;
+
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.query(TABLE_COND,
+        Cursor cursor = db.query(TABLE_CITY,
                 new String[]{"id"}, "city = ?",
                 new String[]{cityName}, null, null, null, null);
         while (cursor.moveToNext()) {
@@ -158,6 +165,30 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return cityId;
+    }
+
+    public List<City> getSearchList(String cityName) {
+        List<City> cityList = new LinkedList<>();
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.query(TABLE_CITY, null, "city like ? ",
+                new String[]{String.valueOf("%" + cityName + "%")}, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                City city = new City();
+
+                city.setId(cursor.getString(cursor.getColumnIndex("id")));
+                city.setCity(cursor.getString(cursor.getColumnIndex("city")));
+                city.setCnty(cursor.getString(cursor.getColumnIndex("cnty")));
+                city.setProv(cursor.getString(cursor.getColumnIndex("prov")));
+                city.setLat(cursor.getDouble(cursor.getColumnIndex("lat")));
+                city.setLon(cursor.getDouble(cursor.getColumnIndex("lon")));
+
+                cityList.add(city);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+        db.close();
+        return cityList;
     }
 
     private ContentValues getCityValues(City city) {

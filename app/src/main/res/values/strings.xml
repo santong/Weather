@@ -23,4 +23,7 @@
     <string name="des.current.co">CO:</string>
     <string name="des.current.so2">SO2:</string>
     <string name="des.current.no2">NO2:</string>
+    <string name="des.search.introduction">请输入城市名查找</string>
+    <string name="des.search.confirm">确定</string>
+    <string name="des.dialog.search">搜索</string>
 </resources>
