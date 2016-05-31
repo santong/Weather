@@ -23,6 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private final static int DATABASE_VERSION = 1;
 
     private final static String TABLE_CITY = "city";
+    private final static String TABLE_FAVOR = "favor";
     private final static String TABLE_COND = "cond";
 
     private static DBHelper dbHelper;

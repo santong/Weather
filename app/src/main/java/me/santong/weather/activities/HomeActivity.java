@@ -55,8 +55,6 @@ public class HomeActivity extends BaseActivity implements HomeContract.View
     @Override
     public void init() {
         fm = getSupportFragmentManager();
-
-        mPresenter.LoadWeather("厦门");
     }
 
     @Override
@@ -113,10 +111,23 @@ public class HomeActivity extends BaseActivity implements HomeContract.View
 
     @Override
     public void showSearchCityDialog() {
-        cityDrawer.closeDrawer();
-
         SearchCityDialogFragment dialogFragment = new SearchCityDialogFragment();
         dialogFragment.show(getFragmentManager(), "searchDialog");
+    }
+
+    @Override
+    public void hideDrawer() {
+        cityDrawer.closeDrawer();
+    }
+
+    @Override
+    public void showDrawer() {
+        cityDrawer.openDrawer();
+    }
+
+    @Override
+    public void showToastLong(String msg) {
+        Toast.makeText(HomeActivity.this, msg, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -137,5 +148,11 @@ public class HomeActivity extends BaseActivity implements HomeContract.View
     @Override
     public void onCallbackCity(String city) {
         mPresenter.LoadWeather(city);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mPresenter.saveCityList();
     }
 }

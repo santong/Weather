@@ -45,16 +45,38 @@ public class HomePresenter implements HomeContract.UserListener {
         this.mView = mView;
         spHelper = SpHelper.getInstance(context);
         dbHelper = DBHelper.getInstance(context);
+
+        mCitySet = spHelper.getCitySet();
+    }
+
+    @Override
+    public void start() {
+        mView.init();
+        setUpDrawerListData();
+
+//        spHelper.clearCityStr();
+
+        if (!spHelper.haveSelectedCity()) {
+            showDefaultView();
+            mView.showToastLong("暂未设置所在城市,请选择你所在的城市");
+            mView.showSearchCityDialog();
+        }
+
+        if (null != mCitySet && mCitySet.size() > 0)
+            LoadWeather((String) mCitySet.toArray()[0]);
     }
 
     @Override
     public void LoadWeather(String cityName) {
         mView.showProgress();
 
+        saveCityToPrefer(cityName);
         String code = dbHelper.getCityCode(cityName);
 
+//        spHelper.clearCityStr();
+
         // 防止输入城市名不存在引发问题
-        if (TextUtils.isEmpty(code)){
+        if (TextUtils.isEmpty(code)) {
             mView.hideProgress();
             mView.showToast("对不起,查询不到结果");
             return;
@@ -94,12 +116,16 @@ public class HomePresenter implements HomeContract.UserListener {
     public void selectDrawerItem(int position) {
         if (position == 1)
             mView.showSearchCityDialog();
+        else if (position > 1) {
+            LoadWeather((String) mCitySet.toArray()[position - 2]);
+        }
+        mView.hideDrawer();
     }
 
     @Override
-    public void start() {
-        mView.init();
-        setUpDrawerListData();
+    public void saveCityList() {
+        if (null != mCitySet && mCitySet.size() > 0)
+            spHelper.savePreferCitySet(mCitySet);
     }
 
     private void deliverData(Weather weather) {
@@ -130,6 +156,7 @@ public class HomePresenter implements HomeContract.UserListener {
             mView.data4DailyFgmt(dBundle);
         }
 
+        // 传递数据给WeatherDetailFragment
         Bundle dtBundle = new Bundle();
         dtBundle.putSerializable("toadyForecast", todayForecast);
         dtBundle.putInt("feelTmp", weather.getNowWeather().getFl());
@@ -140,8 +167,6 @@ public class HomePresenter implements HomeContract.UserListener {
     }
 
     private void setUpDrawerListData() {
-        mCitySet = spHelper.getCityList();
-
         List<IDrawerItem> drawerItemList = new LinkedList<>();
 
         // 搜索Item
@@ -150,14 +175,31 @@ public class HomePresenter implements HomeContract.UserListener {
         searchItem.withName("添加城市");
         drawerItemList.add(searchItem);
 
-        if (mCitySet != null) {
-            for (String city : mCitySet) {
+        if (null != mCitySet) {
+            for (String cityName : mCitySet) {
                 PrimaryDrawerItem item = new PrimaryDrawerItem();
-                item.withName(city);
+                item.withName(cityName);
+                item.withIcon(R.drawable.ic_location_on_black_18dp);
                 drawerItemList.add(item);
             }
         }
 
         mView.setDrawerData(drawerItemList);
     }
+
+    private void saveCityToPrefer(String cityName) {
+        if (null == mCitySet || mCitySet.contains(cityName))
+            return;
+
+        mCitySet.add(cityName);
+        setUpDrawerListData();
+    }
+
+    private void showDefaultView() {
+        mView.data4DetailFgmt(null);
+        mView.data4DailyFgmt(null);
+        mView.data4HourlyFgmt(null);
+        mView.data4CurrentFgmt(null);
+    }
+
 }

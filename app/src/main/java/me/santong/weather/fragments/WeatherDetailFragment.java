@@ -45,6 +45,10 @@ public class WeatherDetailFragment extends BaseFragment {
         tvUv = (TextView) findViewById(R.id.id_fg_detail_tv_uv);
 
         Bundle bundle = getArguments();
+
+        if (null == bundle)
+            return;
+
         DailyForecast dailyForecast = (DailyForecast) bundle.getSerializable("toadyForecast");
         String uvStr = bundle.getString("uv");
         String fl = String.valueOf(bundle.getInt("feelTmp"));

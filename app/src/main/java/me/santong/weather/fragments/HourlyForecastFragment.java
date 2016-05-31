@@ -32,6 +32,9 @@ public class HourlyForecastFragment extends BaseFragment {
                 , LinearLayoutManager.HORIZONTAL, false));
 
         Bundle bundle = getArguments();
+        if (null == bundle)
+            return;
+
         List<HourlyForecast> hourlyForecastList = (List<HourlyForecast>) bundle.getSerializable("hourlyForecast");
 
         if (hourlyForecastList == null || hourlyForecastList.size() <= 0) {

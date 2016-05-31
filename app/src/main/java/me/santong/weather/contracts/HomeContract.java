@@ -28,11 +28,19 @@ public interface HomeContract {
         void data4DetailFgmt(Bundle bundle);
 
         void showSearchCityDialog();
+
+        void hideDrawer();
+
+        void showDrawer();
+
+        void showToastLong(String msg);
     }
 
     interface UserListener extends BaseUserListener {
         void LoadWeather(String cityName);
 
         void selectDrawerItem(int position);
+
+        void saveCityList();
     }
 }

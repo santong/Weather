@@ -3,8 +3,10 @@ package me.santong.weather.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by santong.
@@ -28,13 +30,21 @@ public class SpHelper {
         return instance;
     }
 
-    public void savePreferCityList(Set<String> citySet) {
-        sharedPreferences.edit().putStringSet("cityList", citySet).apply();
+    public boolean haveSelectedCity() {
+        return getCitySet().size() > 0;
     }
 
-    public Set<String> getCityList() {
-        return sharedPreferences.getStringSet("cityList", null);
+    public void clearCityStr() {
+        sharedPreferences.edit().remove("citySet").apply();
     }
 
+    public void savePreferCitySet(Set<String> stringSet) {
+        clearCityStr();
+        sharedPreferences.edit().putStringSet("citySet", stringSet).apply();
+    }
+
+    public Set<String> getCitySet() {
+        return sharedPreferences.getStringSet("citySet", new TreeSet<String>());
+    }
 
 }
