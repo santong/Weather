@@ -1,6 +1,8 @@
 # 什么天气
 简单的天气App，使用[和风天气](http://www.heweather.com)提供的免费Api；目的主要是为了熟悉一下RxJava以及Retrofit的使用，目前RxJava仍然不是很熟练，只懂一些皮毛，所以代码中可能有些不够native的地方，在接下来的开发中会进行学习和优化。
 
+你可以在[这里](https://www.pgyer.com/whatweather)下载
+
 ## 预览
 <img src="https://github.com/santong/Weather/blob/master/main.png"  width="250px" />
 <img src="https://github.com/santong/Weather/blob/master/drawer.png"  width="250px" />
