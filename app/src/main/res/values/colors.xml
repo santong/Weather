@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="blue_bg">#83c0f1</color>
+    <color name="dark_bg">#060741</color>
 
     <color name="white_alpha_230">#e6ffffff</color>
     <color name="white_alpha_215">#d7ffffff</color>

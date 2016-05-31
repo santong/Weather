@@ -64,6 +64,9 @@ public class CurrentWeatherFragment extends BaseFragment {
 
         // 当天基本天气部分
         Bundle bundle = getArguments();
+        if (null == bundle)
+            return;
+
         String cityName = bundle.getString("city");
         int tmpMax = bundle.getInt("tmpMax");
         int tmpMin = bundle.getInt("tmpMin");
@@ -76,7 +79,7 @@ public class CurrentWeatherFragment extends BaseFragment {
         if (!TextUtils.isEmpty(des))
             tvDes.setText(des);
         if (!TextUtils.isEmpty(cityName))
-            tvCity.setText(cityName + "市");
+            tvCity.setText(cityName);
         tvTmpRange.setText(StringUtils.decorateTmpRange(tmpMax, tmpMin));
         tvDayOfWeek.setText(DateUtils.getDayOfWeek());
 

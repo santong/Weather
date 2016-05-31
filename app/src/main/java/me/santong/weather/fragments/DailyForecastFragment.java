@@ -28,6 +28,9 @@ public class DailyForecastFragment extends BaseFragment {
                 , LinearLayoutManager.VERTICAL, false));
 
         Bundle bundle = getArguments();
+        if (null == bundle)
+            return;
+
         List<DailyForecast> dailyForecastList = (List<DailyForecast>) bundle
                 .getSerializable("dailyForecast");
 

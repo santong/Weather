@@ -51,7 +51,6 @@ public class SplashActivity extends BaseActivity {
 
                     @Override
                     public void onError(Throwable e) {
-//                        Log.e("===E", e.getMessage());
                         pushActivity(HomeActivity.class);
                         finish();
                     }
@@ -69,14 +68,12 @@ public class SplashActivity extends BaseActivity {
                             }.getType();
                             List<Condition> condList = gson.fromJson(condArray, condListType);
                             dbHelper.SaveOrUpdateCondList(condList);
-//                            Log.e("===onNextCond", condList.get(0).toString());
 
                         } else if (cityArray != null) {
                             Type cityListType = new TypeToken<List<City>>() {
                             }.getType();
                             List<City> cityList = gson.fromJson(cityArray, cityListType);
                             dbHelper.SaveOrUpdateCityList(cityList);
-//                            Log.e("===onNextCity", cityList.get(0).toString());
                         }
 
                     }

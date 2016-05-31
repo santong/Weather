@@ -40,5 +40,9 @@ dependencies {
     compile 'com.mikepenz:google-material-typeface:2.2.0.1.original@aar'
     compile 'com.mikepenz:weather-icons-typeface:2.0.10.1@aar'
 
+    compile('com.mikepenz:materialdrawer:5.2.7@aar') {
+        transitive = true
+    }
+
     compile 'com.github.bumptech.glide:glide:3.7.0'
 }

@@ -4,20 +4,35 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
+
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import me.santong.weather.R;
 import me.santong.weather.contracts.HomeContract;
 import me.santong.weather.fragments.CurrentWeatherFragment;
 import me.santong.weather.fragments.DailyForecastFragment;
 import me.santong.weather.fragments.HourlyForecastFragment;
+import me.santong.weather.fragments.SearchCityDialogFragment;
 import me.santong.weather.fragments.WeatherDetailFragment;
 import me.santong.weather.framework.BaseActivity;
 import me.santong.weather.prensenters.HomePresenter;
 
-public class HomeActivity extends BaseActivity implements HomeContract.View {
+public class HomeActivity extends BaseActivity implements HomeContract.View
+        , SearchCityDialogFragment.SearchCallbackListener {
 
     private HomeContract.UserListener mPresenter;
+
+    private Drawer cityDrawer;
 
     private FragmentManager fm;
 
@@ -33,15 +48,29 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
 
     @Override
     protected void initActivity() {
-        mPresenter = new HomePresenter(this);
+        mPresenter = new HomePresenter(this, this);
         mPresenter.start();
     }
 
     @Override
     public void init() {
         fm = getSupportFragmentManager();
+    }
 
-        mPresenter.LoadWeather();
+    @Override
+    public void setDrawerData(List<IDrawerItem> drawerItemList) {
+        cityDrawer = new DrawerBuilder()
+                .withActivity(this)
+                .withHeader(R.layout.header_layout)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        mPresenter.selectDrawerItem(position);
+                        return true;
+                    }
+                })
+                .build();
+        cityDrawer.setItems(drawerItemList);
     }
 
     @Override
@@ -81,6 +110,27 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
     }
 
     @Override
+    public void showSearchCityDialog() {
+        SearchCityDialogFragment dialogFragment = new SearchCityDialogFragment();
+        dialogFragment.show(getFragmentManager(), "searchDialog");
+    }
+
+    @Override
+    public void hideDrawer() {
+        cityDrawer.closeDrawer();
+    }
+
+    @Override
+    public void showDrawer() {
+        cityDrawer.openDrawer();
+    }
+
+    @Override
+    public void showToastLong(String msg) {
+        Toast.makeText(HomeActivity.this, msg, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void showProgress() {
         showProgressDialog();
     }
@@ -93,5 +143,16 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
     @Override
     public void showToast(String msg) {
         Toast.makeText(HomeActivity.this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onCallbackCity(String city) {
+        mPresenter.LoadWeather(city);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mPresenter.saveCityList();
     }
 }
