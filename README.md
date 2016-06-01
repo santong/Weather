@@ -25,6 +25,7 @@
 - [和风天气](http://www.heweather.com)
 - [RxJava](https://github.com/ReactiveX/RxJava)
 - [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+- [Retrofit](https://github.com/square/retrofit)
 - [Gson](https://github.com/google/gson)
 - [MaterialDrawer](https://github.com/mikepenz/MaterialDrawer)
 - [Glide](https://github.com/bumptech/glide)
