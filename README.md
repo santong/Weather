@@ -9,7 +9,7 @@
 <img src="https://github.com/santong/Weather/blob/master/search.png"  width="250px" />
 
 ## 部分特性
-- MVP设计模式
+- MVP架构
 - RxJava + Retrofit实现网络加载
 - Gson解析网络请求
 - MaterialDrawer
