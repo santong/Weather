@@ -16,7 +16,7 @@
         android:gravity="center"
         android:textColor="@color/white_alpha_230"
         android:textSize="12sp"
-        tools:text="现在" />
+        android:text="@string/des.null"/>
 
     <TextView
         android:id="@+id/id_item_hourly_tv_tmp"
@@ -25,7 +25,7 @@
         android:gravity="center"
         android:textColor="@color/white_alpha_230"
         android:textSize="14sp"
-        tools:text="27°" />
+        android:text="@string/des.tmp.null" />
 
 
 </LinearLayout>

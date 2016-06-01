@@ -20,9 +20,9 @@
         android:paddingEnd="15dp"
         android:paddingStart="15dp"
         android:paddingTop="10dp"
+        android:text="@string/des.daily.null"
         android:textColor="@color/white_alpha_230"
-        android:textSize="16sp"
-        tools:text="今天:" />
+        android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
@@ -50,9 +50,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/des.null"
             android:textColor="@color/white_alpha_230"
-            android:textSize="16sp"
-            tools:text="上午5:20" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -77,9 +77,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/des.null"
             android:textColor="@color/white_alpha_230"
-            android:textSize="16sp"
-            tools:text="下午5:20" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -103,9 +103,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/des.null"
             android:textColor="@color/white_alpha_230"
-            android:textSize="16sp"
-            tools:text="30%" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -129,9 +129,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/des.null"
             android:textColor="@color/white_alpha_230"
-            android:textSize="16sp"
-            tools:text="89%" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -156,9 +156,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/des.null"
             android:textColor="@color/white_alpha_230"
-            android:textSize="16sp"
-            tools:text="西南3米/秒" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -183,9 +183,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/des.null"
             android:textColor="@color/white_alpha_230"
-            android:textSize="16sp"
-            tools:text="33%" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -209,9 +209,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/des.null"
             android:textColor="@color/white_alpha_230"
-            android:textSize="16sp"
-            tools:text="0.0厘米" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -236,9 +236,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/des.null"
             android:textColor="@color/white_alpha_230"
-            android:textSize="16sp"
-            tools:text="1,009百帕" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -262,9 +262,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/des.null"
             android:textColor="@color/white_alpha_230"
-            android:textSize="16sp"
-            tools:text="9.7公里" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -289,9 +289,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/des.null"
             android:textColor="@color/white_alpha_230"
-            android:textSize="16sp"
-            tools:text="0" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 

@@ -2,6 +2,8 @@ package me.santong.weather.fragments;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import me.santong.weather.R;
@@ -32,6 +34,14 @@ public class CurrentWeatherFragment extends BaseFragment {
     private TextView tvPm25;
     private TextView tvSO2;
 
+    private LinearLayout llCityDetail;
+    private LinearLayout llAqiDetail;
+    private LinearLayout llWeekdayDetail;
+
+    private View vDiveder;
+
+    private int distance;
+
     public CurrentWeatherFragment() {
         super(R.layout.fragment_current);
     }
@@ -40,8 +50,8 @@ public class CurrentWeatherFragment extends BaseFragment {
     protected void viewDidLoad() {
         initView();
         initData();
+        initEvent();
     }
-
 
     private void initView() {
         tvCity = (TextView) findViewById(R.id.id_fg_current_tv_city);
@@ -58,6 +68,12 @@ public class CurrentWeatherFragment extends BaseFragment {
         tvPm10 = (TextView) findViewById(R.id.id_fg_current_tv_pm10);
         tvPm25 = (TextView) findViewById(R.id.id_fg_current_tv_pm25);
         tvSO2 = (TextView) findViewById(R.id.id_fg_current_tv_so2);
+
+        vDiveder = findViewById(R.id.id_fg_current_divide_view);
+
+        llWeekdayDetail = (LinearLayout) findViewById(R.id.id_fg_current_ll_week_day_detail);
+        llAqiDetail = (LinearLayout) findViewById(R.id.id_fg_current_ll_aqi_detail);
+        llCityDetail = (LinearLayout) findViewById(R.id.id_fg_current_ll_city_detail);
     }
 
     private void initData() {
@@ -99,6 +115,11 @@ public class CurrentWeatherFragment extends BaseFragment {
             tvPm25.setText(String.valueOf(city.getPm25()));
             tvSO2.setText(String.valueOf(city.getSo2()));
         }
+
+        distance = llWeekdayDetail.getHeight() + tvTmp.getHeight();
+    }
+
+    private void initEvent() {
 
     }
 }

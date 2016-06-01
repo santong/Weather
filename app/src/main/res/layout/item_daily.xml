@@ -12,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="@string/des.null"
         android:textColor="@color/white_alpha_230"
-        android:textSize="16sp"
-        tools:text="星期六" />
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/id_item_daily_img_icon"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:gravity="center"
+        android:text="@string/des.tmp.null"
         android:textColor="@color/white_alpha_230"
-        android:textSize="16sp"
-        tools:text="30 17" />
+        android:textSize="16sp" />
 </LinearLayout>

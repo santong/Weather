@@ -32,10 +32,10 @@ public class HourlyForecastFragment extends BaseFragment {
                 , LinearLayoutManager.HORIZONTAL, false));
 
         Bundle bundle = getArguments();
-        if (null == bundle)
-            return;
+        List<HourlyForecast> hourlyForecastList = null;
+        if (null != bundle)
+            hourlyForecastList = (List<HourlyForecast>) bundle.getSerializable("hourlyForecast");
 
-        List<HourlyForecast> hourlyForecastList = (List<HourlyForecast>) bundle.getSerializable("hourlyForecast");
 
         if (hourlyForecastList == null || hourlyForecastList.size() <= 0) {
             tvWarn.setVisibility(View.VISIBLE);

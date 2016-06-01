@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">什么天气</string>
     <string name="des.hourly.null">今天没有预报了,明天再来看吧</string>
+    <string name="des.daily.null">暂未收到天气预报</string>
 
     <string name="des.detail.sunrise">日出:</string>
     <string name="des.detail.sunset">日落:</string>
@@ -26,4 +27,7 @@
     <string name="des.search.introduction">请输入城市名查找</string>
     <string name="des.search.confirm">确定</string>
     <string name="des.dialog.search">搜索</string>
+
+    <string name="des.null">暂空</string>
+    <string name="des.tmp.null">\?°</string>
 </resources>
